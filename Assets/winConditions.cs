@@ -6,17 +6,24 @@ using UnityEngine.UI;
 public class winConditions : MonoBehaviour
 {
     public Text winText;
+    public AudioClip youWin;
+    public AudioClip youLoose;
+    public AudioSource src;
     public void Start()
     {
         winText = GetComponent<Text>();
-        
+        src = GetComponent<AudioSource>();  
     }
     public void playerWin()
     {
         if (winText != null)
         {
+            
             winText.text = "Player has won";
             showText();
+            src.clip = youWin;
+            src.Play();
+            Debug.Log(src.isPlaying + "w");
 
         }
     }
@@ -40,6 +47,8 @@ public class winConditions : MonoBehaviour
     {
         if (winText != null)
         {
+            src.clip = youLoose;
+            src.Play();
             winText.text = "Enemy has won";
             showText();
         }

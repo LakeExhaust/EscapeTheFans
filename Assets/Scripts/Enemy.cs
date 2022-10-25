@@ -56,10 +56,17 @@ public class Enemy : MonoBehaviour
         {
             dist = player.transform.position - transform.position;
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        }
+        } 
         
     }
 
+    public void stopMovement()
+    {
+       if(isEnemyDead()==true)
+        {
+            Debug.Log("Stopping Movement");
+        }
+    }
     
     public void TakeDamage(int damage)
     {
@@ -123,6 +130,8 @@ public class Enemy : MonoBehaviour
         return numberOfEnemies;
     }
     
+
+
     
 
 }

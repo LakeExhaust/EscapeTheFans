@@ -12,18 +12,14 @@ public class Bullet : MonoBehaviour
     public int damage = 5;
     public int amountKilled = 0;
     GameManger manager;
-    public AudioClip clip;
-    public AudioSource source;
+   
 
 
     private void Start()
     {
         manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManger>();
 
-        source = GetComponent<AudioSource>();
-
-
-        source.clip = clip;
+     
 
     }
 
@@ -49,9 +45,11 @@ public class Bullet : MonoBehaviour
                 manager.changeColor(enemy.gameObject);
                 manager.enemyHit = true;
                 enemy.TakeDamage(damage * 2);
-                manager.GetShake();
+                manager.playDamage();
+                //     manager.GetShake();
                 Destroy(gameObject);
-                source.Play();
+           
+            
                 
                 
 
@@ -61,9 +59,8 @@ public class Bullet : MonoBehaviour
                
                 enemy.TakeDamage(damage);
                 manager.changeColor(enemy.gameObject);
-                source.Play();
-                manager.GetShake();
-                Debug.Log(source.isPlaying + "Here");
+
+                manager.playDamage();
                 manager.enemyHit = true;
                 Destroy(gameObject);
               
@@ -78,13 +75,14 @@ public class Bullet : MonoBehaviour
             manager.enemyHit = true;
           
             bigFan.TakeDamage(damage);
-            manager.GetShake();
+            manager.playDamage();
+          //  manager.GetShake();
             Debug.Log("You get a powerup");
             manager.getWater();
             manager.spawnEnemy(3);
             manager.spawnEnemy(5);
             Destroy(gameObject);
-            source.Play();
+            
 
             //If first three enemies get killed then we want to spawn a wave with no powerup
         }
@@ -98,9 +96,10 @@ public class Bullet : MonoBehaviour
             manager.enemyHit = true;
            
             bigFan.TakeDamage(damage);
-            manager.GetShake();
+            manager.playDamage();
+         //   manager.GetShake();
             Destroy(gameObject);
-            source.Play();
+            
         }
 
         else if (manager.isBigFan()==true && manager.isEnemy()==true && manager.numberOfEnemies()<=0)

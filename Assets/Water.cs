@@ -10,16 +10,24 @@ public class Water : MonoBehaviour
     public bool hasCollided=false;
     public float timer = 30.0f;
     GameManger manger;
+    AudioSource audioSource;    
+  public AudioClip clip;
    
     private void Start()
     {
         manger = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManger>();
+        audioSource = GetComponent<AudioSource>();  
+        audioSource.clip = clip;    
     }
     public void Update()
     {
         if (hasCollided)
         {
+           
+            manger.changeBlue(manger.getPlayer().gameObject);
+            
             expire();
+           
            
         }
     }
@@ -33,7 +41,8 @@ public class Water : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
             hasCollided = true;
-           
+            audioSource.Play(); 
+            
          
              
            
@@ -60,7 +69,9 @@ public bool isWater()
         timer -= Time.deltaTime;
         if (timer < 0)
         {
+           
+            manger.playerRevertColor();
             Destroy(gameObject);
-        }
+        } 
     }
 }

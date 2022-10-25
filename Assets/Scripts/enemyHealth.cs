@@ -49,7 +49,7 @@ public class enemyHealth : MonoBehaviour
             if (health <= 0)
             {
 
-            Destroy(gameObject);    
+            Destroy(gameObject);
              manager.increaseDead();
               
             }
@@ -67,13 +67,14 @@ public class enemyHealth : MonoBehaviour
             Debug.Log("Big fan is dead");
             Destroy(gameObject);
             manager.increaseDead();
+         
 
         }
 
     }
 
 
-
+  
 
 
     public void healUp()
@@ -91,6 +92,7 @@ public class enemyHealth : MonoBehaviour
         } 
     }
 
+    
     
     }
    

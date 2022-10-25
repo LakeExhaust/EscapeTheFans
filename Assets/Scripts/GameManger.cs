@@ -31,6 +31,10 @@ public class GameManger : MonoBehaviour
     public float timerHasNotRunOut = 0;
     SpriteRenderer spr;
     public screenShake cam;
+
+    public AudioClip damage;
+    AudioSource src;
+    
     void Start()
     {
         bigFan = GameObject.FindGameObjectWithTag("BigFan").GetComponent<BigFan>();
@@ -42,6 +46,8 @@ public class GameManger : MonoBehaviour
         winText = GameObject.FindGameObjectWithTag("winText").GetComponent<winConditions>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<screenShake>();
+        src = GetComponent<AudioSource>();
+        src.clip = damage;
 
         water.hideWater();
 
@@ -65,6 +71,10 @@ public class GameManger : MonoBehaviour
 
     public Player getPlayer()
     {
+        if (player == null)
+        {
+           
+        }
         return player;
     }
 
@@ -195,6 +205,17 @@ public class GameManger : MonoBehaviour
 
     }
 
+    public void changeBlue(GameObject target)
+    {
+        spr = target.GetComponent<SpriteRenderer>();
+        spr.color = Color.blue;
+
+
+
+    }
+
+
+
 
     public void revertColor()
     {
@@ -238,4 +259,10 @@ public class GameManger : MonoBehaviour
         StartCoroutine(cam.Shake(.15f, 0.01f));
     }
 
+   public void playDamage()
+    {
+        src.Play();
+    }
+
+   
 }
