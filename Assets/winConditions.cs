@@ -12,12 +12,13 @@ public class winConditions : MonoBehaviour
     public void Start()
     {
         winText = GetComponent<Text>();
-        src = GetComponent<AudioSource>();  
+        src = GetComponent<AudioSource>();
+       
     }
     public void playerWin()
     {
-        if (winText != null)
-        {
+       
+      
             
             winText.text = "Player has won";
             showText();
@@ -25,7 +26,7 @@ public class winConditions : MonoBehaviour
             src.Play();
             Debug.Log(src.isPlaying + "w");
 
-        }
+        
     }
 
     public Text getWinText()
@@ -45,12 +46,11 @@ public class winConditions : MonoBehaviour
 
     public void enemyWin()
     {
-        if (winText != null)
-        {
+        
             src.clip = youLoose;
             src.Play();
             winText.text = "Enemy has won";
             showText();
-        }
+        
     }
 }

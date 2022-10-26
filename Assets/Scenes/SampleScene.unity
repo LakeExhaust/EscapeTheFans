@@ -19556,7 +19556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 34.22248}
+  m_AnchoredPosition: {x: 5, y: 138}
   m_SizeDelta: {x: 524.438, y: 178.4574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715451039
@@ -19613,10 +19613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4b4e06b9c14b84dac9dddc111d186a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 0}
+  winText: {fileID: 1715451039}
   youWin: {fileID: 8300000, guid: d5f85ab38211d5f4bbd68181c7c076f2, type: 3}
   youLoose: {fileID: 8300000, guid: 56cbc6d4c759383498b1e830e6280b25, type: 3}
-  src: {fileID: 0}
+  src: {fileID: 1715451042}
 --- !u!82 &1715451042
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20004,7 +20004,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.86, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -1.7074585, y: -1.0261383}
   m_SizeDelta: {x: 3.414856, y: 2.0572815}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20441,7 +20441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1937697544
 RectTransform:
   m_ObjectHideFlags: 0
