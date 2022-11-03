@@ -15,6 +15,8 @@ public class Shooting : MonoBehaviour
     public GameObject secondBullet;
     public GameManger gm;
     bool hasFired = false;
+    public GameObject GrenadePrefab;
+    GameObject grenade;
 
     // Update is called once per frame
 
@@ -31,6 +33,11 @@ public class Shooting : MonoBehaviour
           
         }
         fire2();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            throwGrenade();
+        }
      
     }
     public void fire2()
@@ -45,6 +52,17 @@ public class Shooting : MonoBehaviour
 
 
         }
+
+
+    }
+
+    public void throwGrenade()
+    {
+
+        grenade = Instantiate(GrenadePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = grenade.GetComponent<Rigidbody2D>();
+        
+        rb.AddForce(firePoint.up*5, ForceMode2D.Impulse);
     }
     public void fire(GameObject bulletPrefab)
     {

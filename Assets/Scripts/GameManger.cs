@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,9 @@ public class GameManger : MonoBehaviour
 
     public AudioClip damage;
     AudioSource src;
-    
+
+    public GrenadeHandler gh;
+
     void Start()
     {
         bigFan = GameObject.FindGameObjectWithTag("BigFan").GetComponent<BigFan>();
@@ -48,7 +51,7 @@ public class GameManger : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<screenShake>();
         src = GetComponent<AudioSource>();
         src.clip = damage;
-
+      
         water.hideWater();
 
         winText.hideText();
@@ -61,6 +64,9 @@ public class GameManger : MonoBehaviour
     void Update()
     {
         resetGame();
+
+        Shield();
+
        
 
     }
@@ -73,7 +79,7 @@ public class GameManger : MonoBehaviour
     {
         if (player == null)
         {
-           
+
         }
         return player;
     }
@@ -219,16 +225,16 @@ public class GameManger : MonoBehaviour
 
     public void revertColor()
     {
-        if (enemyHit == true && spr!=null)
+        if (enemyHit == true && spr != null)
         {
             spr.color = Color.Lerp(spr.color, Color.white, Time.deltaTime / 0.5f);
-          
+
         }
     }
 
     public void playerRevertColor()
     {
-        if(spr!=null)
+        if (spr != null)
         {
             spr.color = Color.Lerp(spr.color, Color.white, Time.deltaTime / 0.5f);
 
@@ -237,32 +243,49 @@ public class GameManger : MonoBehaviour
 
     public int numberOfEnemies()
     {
-      return  enemy.getNumberOfEnemies(); 
+        return enemy.getNumberOfEnemies();
     }
 
     public void resetGame()
     {
-       
-        if(playerWon==true && Input.GetKeyDown(KeyCode.R))
+
+        if (playerWon == true && Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Restarting game");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        } else if(enemyWon == true && Input.GetKeyDown(KeyCode.R))
+        } else if (enemyWon == true && Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Restarting game");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
-  public void GetShake()
+    public void GetShake()
     {
         StartCoroutine(cam.Shake(.15f, 0.01f));
     }
 
-   public void playDamage()
+    public void playDamage()
     {
         src.Play();
     }
 
-   
+  public void Shield()
+
+    {
+        if (gh.hasHitEnemy == false)
+        {
+            Debug.Log("I can't say for certain");
+            enemy.playShield();
+        } else if(gh.hasHitEnemy == true)
+        {
+            Debug.Log("Is it even working");
+            enemy.stopShied();  
+        }
+       
+            
+        
+    }
+
+ 
 }

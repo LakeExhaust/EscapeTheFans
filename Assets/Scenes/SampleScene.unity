@@ -545,6 +545,7 @@ MonoBehaviour:
   timerHasNotRunOut: 0
   cam: {fileID: 0}
   damage: {fileID: 8300000, guid: 549b13d2081e00d478d4ea59786fc763, type: 3}
+  gh: {fileID: 7851939850735189202, guid: 34a003d1d15b18e418d96898b9237560, type: 3}
 --- !u!4 &585727197
 Transform:
   m_ObjectHideFlags: 0
@@ -19031,7 +19032,8 @@ MonoBehaviour:
   UItext: {fileID: 1733935623}
   normalBullet: {fileID: 2447360798970934311, guid: a2ceed49aa9386343865c3566be2106a, type: 3}
   secondBullet: {fileID: 7732598653581756557, guid: 570d321e635cb774f83127a9745ce9cf, type: 3}
-  gm: {fileID: 0}
+  gm: {fileID: 585727196}
+  GrenadePrefab: {fileID: 8166880953971724137, guid: 34a003d1d15b18e418d96898b9237560, type: 3}
 --- !u!114 &1080984046
 MonoBehaviour:
   m_ObjectHideFlags: 0

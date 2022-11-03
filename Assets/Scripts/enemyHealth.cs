@@ -93,7 +93,16 @@ public class enemyHealth : MonoBehaviour
     }
 
     
-    
+    public bool IsShieldHealth()
+    {
+        bool value = false;
+        if(health==10)
+        {
+            value = true;   
+
+        }
+        return value;   
+    }
     }
    
 

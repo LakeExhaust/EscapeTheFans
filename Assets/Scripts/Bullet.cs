@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         manager.revertColor();
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
 
@@ -41,13 +42,19 @@ public class Bullet : MonoBehaviour
           
             if (manager.hasFired() == true)
             {
-                Debug.Log("Has fired");
-                manager.changeColor(enemy.gameObject);
-                manager.enemyHit = true;
-                enemy.TakeDamage(damage * 2);
-                manager.playDamage();
-                //     manager.GetShake();
-                Destroy(gameObject);
+                if (enemy.hasShield == false)
+                {
+                    Debug.Log("Has fired");
+                    manager.changeColor(enemy.gameObject);
+                    manager.enemyHit = true;
+                    enemy.TakeDamage(damage * 2);
+                    manager.playDamage();
+                    //     manager.GetShake();
+                    Destroy(gameObject);
+                } else
+                {
+                    enemy.TakeNoDamage(damage);
+                }
            
             
                 
@@ -56,15 +63,20 @@ public class Bullet : MonoBehaviour
             }
             else if (manager.hasFired() == false)
             {
-               
-                enemy.TakeDamage(damage);
-                manager.changeColor(enemy.gameObject);
+                if (enemy.hasShield == false)
+                {
+                    enemy.TakeDamage(damage);
+                    manager.changeColor(enemy.gameObject);
 
-                manager.playDamage();
-                manager.enemyHit = true;
-                Destroy(gameObject);
-              
-       
+                    manager.playDamage();
+                    manager.enemyHit = true;
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    enemy.TakeNoDamage(damage);
+                }
+
 
             }
         }

@@ -377,6 +377,7 @@
 "Assets/Camera/screenShake.cs"
 "Assets/enemyFlag.cs"
 "Assets/FlagPole.cs"
+"Assets/GrenadeHandler.cs"
 "Assets/Pause.cs"
 "Assets/Powerups/PowerupEffect.cs"
 "Assets/ScoreScript.cs"

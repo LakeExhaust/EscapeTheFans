@@ -15,6 +15,7 @@ TagManager:
   - winText
   - Shake
   - ResumeButton
+  - Grenade
   layers:
   - Default
   - TransparentFX

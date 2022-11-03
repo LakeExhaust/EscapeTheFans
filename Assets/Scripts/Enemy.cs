@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -24,7 +26,12 @@ public class Enemy : MonoBehaviour
     public float timer = 0.5f;
 
     public bool enemyHasBeenHit = false;
+
+    public Animator anim;
+
+    public bool hasShield=false;
     private void Awake()
+
     {
         resetSpeed();
     }
@@ -33,11 +40,12 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
+        anim = GetComponent<Animator>();        
         enemyHealth = GetComponent<enemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player");
         setEnemyValues();
         numberOfEnemies++;
-       
+         
        
 
     }
@@ -131,8 +139,25 @@ public class Enemy : MonoBehaviour
     }
     
 
+   public bool getHealth()
+    {
+        return enemyHealth.IsShieldHealth();
+    }
 
-    
+    public void playShield()
+    {
+
+        anim.Play("enemyShield");
+        hasShield = true;
+       
+       
+    }
+
+    public void stopShied()
+    {
+        anim.SetBool("hasHit", true);
+    }
+
 
 }
 
