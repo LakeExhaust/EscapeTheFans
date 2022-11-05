@@ -21,7 +21,7 @@ public class Water : MonoBehaviour
     }
     public void Update()
     {
-        if (hasCollided)
+        if (hasCollided && manger.isPlayerDead()==false)
         {
            
             manger.changeBlue(manger.getPlayer().gameObject);
@@ -56,6 +56,7 @@ public class Water : MonoBehaviour
     public void pickUp()
     {
         gameObject.SetActive(true);
+        Debug.Log("Shown now");
 
     }
 

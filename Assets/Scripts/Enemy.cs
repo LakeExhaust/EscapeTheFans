@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     public Animator anim;
 
     public bool hasShield=false;
+
+    public bool hasDied = false;
     private void Awake()
 
     {
@@ -60,11 +62,14 @@ public class Enemy : MonoBehaviour
   
     private void GoTowards()
     {
-        if (player != null)
+        if (player != null && hasDied==false)
         {
             dist = player.transform.position - transform.position;
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        } 
+        }  else
+        {
+
+        }
         
     }
 
@@ -139,23 +144,37 @@ public class Enemy : MonoBehaviour
     }
     
 
-   public bool getHealth()
+   public int getHealth()
     {
-        return enemyHealth.IsShieldHealth();
+        return enemyHealth.getHealth();
     }
 
     public void playShield()
     {
 
-        anim.Play("enemyShield");
-        hasShield = true;
+
+        //  anim.Play("enemyShield");
+   
+        
+            anim.SetBool("hasHit", true);
+            hasShield = true;
        
+        }
+        
        
-    }
+    
 
     public void stopShied()
     {
-        anim.SetBool("hasHit", true);
+        anim.SetBool("hasHit", false);
+        hasShield = false;  
+    }
+
+    public void startPemance() {
+        hasDied = true;
+        anim.SetBool("isDead", true);
+        anim.Play("deadEnemy");
+        Debug.Log("Ishere");
     }
 
 

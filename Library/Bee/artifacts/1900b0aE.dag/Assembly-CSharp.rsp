@@ -376,6 +376,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Camera/screenShake.cs"
 "Assets/enemyFlag.cs"
+"Assets/ExplosionManager.cs"
 "Assets/FlagPole.cs"
 "Assets/GrenadeHandler.cs"
 "Assets/Pause.cs"

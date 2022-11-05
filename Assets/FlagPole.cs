@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FlagPole : MonoBehaviour
 {
-    public Animation animationClip;
+     
     public Text winText;
     GameManger gm;
     AudioSource audioSource;
@@ -18,7 +18,10 @@ public class FlagPole : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = clip;
             audioSource.Play();
-            Debug.Log(audioSource.isPlaying);    
+            Debug.Log("Hahah" + audioSource.isPlaying.ToString());
+            gm.winText.setText("Player wins");
+            gm.winText.showText();
+     
         }
     }
     // Start is called before the first frame update

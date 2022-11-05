@@ -143,6 +143,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   manger: {fileID: 0}
+  src: {fileID: 2508449766056514925}
+  clip: {fileID: 0}
 --- !u!95 &439572407515660863
 Animator:
   serializedVersion: 4

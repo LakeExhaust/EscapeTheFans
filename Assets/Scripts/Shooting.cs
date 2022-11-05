@@ -17,22 +17,32 @@ public class Shooting : MonoBehaviour
     bool hasFired = false;
     public GameObject GrenadePrefab;
     GameObject grenade;
-
+    public AudioSource src;
+    public AudioClip ac;
+    public AudioClip otherClip;
     // Update is called once per frame
 
     private void Start()
     {
        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManger>();
+       src.clip = ac;
 
     }
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
+            src.Play();
             fire(normalBullet);
           
         }
-        fire2();
+        if (Input.GetButtonDown("Fire2") && gm.checkWater() == true && gm.hasTimeRunOut() == false)
+        {
+
+           
+            fire2();
+            src.Play();
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -42,16 +52,19 @@ public class Shooting : MonoBehaviour
     }
     public void fire2()
     {
-        if (Input.GetButtonDown("Fire2") && gm.checkWater() == true && gm.hasTimeRunOut() == false)
-        {
+       
 
-            hasFired = true;    
+            hasFired = true;
+            src.clip = otherClip;
+            
             bullet = Instantiate(secondBullet, firePoint.position, firePoint.rotation);
+           
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            
 
 
-        }
+        
 
 
     }

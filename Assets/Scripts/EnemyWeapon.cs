@@ -13,10 +13,13 @@ public class EnemyWeapon : MonoBehaviour
     public GameObject enemy;
     float timeLastCall;
    public float startTime;
-
+    public AudioSource src;
+    public AudioClip ac;
     private void Start()
     {
         timeLastCall = startTime;
+        src = GetComponent<AudioSource>();
+        src.clip = ac;
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class EnemyWeapon : MonoBehaviour
                 if (timeLastCall < -0)
                 {
                     Shoot();
+                    src.Play(); 
                     timeLastCall = startTime;
                 }
                 else
@@ -46,6 +50,7 @@ public class EnemyWeapon : MonoBehaviour
     {
        
       GameObject bullet =   Instantiate(weaponPrefab, firePoint.position, firePoint.rotation) as GameObject;
+      
         timeLastCall += Time.deltaTime;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
     }

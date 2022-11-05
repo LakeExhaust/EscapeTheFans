@@ -49,8 +49,14 @@ public class winConditions : MonoBehaviour
         
             src.clip = youLoose;
             src.Play();
-            winText.text = "Enemy has won";
+           Debug.Log(src.isPlaying.ToString() + "heyyyy");
+        winText.text = "Enemy has won";
             showText();
         
+    }
+
+    public void setText(string text)
+    {
+        winText.text = text;
     }
 }

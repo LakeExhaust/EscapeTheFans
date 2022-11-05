@@ -88,11 +88,14 @@ public class Bullet : MonoBehaviour
           
             bigFan.TakeDamage(damage);
             manager.playDamage();
-          //  manager.GetShake();
-            Debug.Log("You get a powerup");
-            manager.getWater();
-            manager.spawnEnemy(3);
-            manager.spawnEnemy(5);
+            //  manager.GetShake();
+            if (manager.isBigFan() == true)
+            {
+                Debug.Log("You get a powerup");
+                manager.getWater();
+                manager.spawnEnemy(3);
+                manager.spawnEnemy(5);
+            }
             Destroy(gameObject);
             
 

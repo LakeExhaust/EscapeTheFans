@@ -273,19 +273,33 @@ public class GameManger : MonoBehaviour
   public void Shield()
 
     {
-        if (gh.hasHitEnemy == false)
+       if(enemy.getHealth()<=10 && enemy!=null)
         {
-            Debug.Log("I can't say for certain");
-            enemy.playShield();
-        } else if(gh.hasHitEnemy == true)
+            Debug.Log("We're in shield tettority");
+            enemy.playShield(); 
+        } else if(enemy.getHealth()>10)
         {
-            Debug.Log("Is it even working");
-            enemy.stopShied();  
+            enemy.stopShied();
+            Debug.Log("We're not shield tettority");
         }
        
             
         
     }
 
+    public bool hasHitEnemy()
+    {
+       return gh.hasHit();
+    }
+
+    public void playAnim()
+    {
+        gh.playAnim();
+    }
+
+    public void startPemaence()
+    {
+        enemy.startPemance();       
+    }
  
 }

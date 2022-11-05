@@ -76,11 +76,11 @@ public class BigFan : MonoBehaviour
         bool value = false;
         if (enemyHealth.getHealth() <= 0)
         {
-            return value=true;
+            value=true;
         }
         else
         {
-            return value=false;
+            value=false;
         }
         return value;
     }
