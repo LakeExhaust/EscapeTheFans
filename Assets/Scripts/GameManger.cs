@@ -185,10 +185,12 @@ public class GameManger : MonoBehaviour
     {
         playerWon = true;
         winText.playerWin();
+          
     }
 
     public void enemyWin()
     {
+       
         enemyWon = true;
         winText.enemyWin();
     }
@@ -309,5 +311,10 @@ public class GameManger : MonoBehaviour
    public bool hasDied()
     {
         return enemy.hasDied;
+    }
+
+    public void startPlayerPermance()
+    {
+        player.onDeath();
     }
 }

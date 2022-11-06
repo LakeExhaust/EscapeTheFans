@@ -35,8 +35,9 @@ public class Health : MonoBehaviour
 
        if(health<=0)
         {
+            gm.startPlayerPermance();
             gm.enemyWin();
-            Destroy(gameObject);
+         
        
             
         }

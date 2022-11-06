@@ -46,7 +46,7 @@ public class winConditions : MonoBehaviour
 
     public void enemyWin()
     {
-        
+            
             src.clip = youLoose;
             src.Play();
            Debug.Log(src.isPlaying.ToString() + "heyyyy");
