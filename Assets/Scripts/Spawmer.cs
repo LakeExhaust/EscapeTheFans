@@ -14,10 +14,13 @@ public class Spawmer : MonoBehaviour
 
     public void itemToSpawn(int amount)
     {
-        for (int i = 0; i < amount; i++)
+        if (objectToSpawn != null)
         {
-            item = Instantiate(objectToSpawn, transform.position, transform.rotation);
-            
+            for (int i = 0; i < amount; i++)
+            {
+                item = Instantiate(objectToSpawn, transform.position, transform.rotation);
+
+            }
         }
     }
 

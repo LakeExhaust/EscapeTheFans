@@ -32,6 +32,9 @@ public class Enemy : MonoBehaviour
     public bool hasShield=false;
 
     public bool hasDied = false;
+    public BoxCollider2D bx;
+
+    public bool allEnemiesHasDied = false;
     private void Awake()
 
     {
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();        
         enemyHealth = GetComponent<enemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player");
+        bx = GetComponent<BoxCollider2D>();     
         setEnemyValues();
         numberOfEnemies++;
          
@@ -55,20 +59,25 @@ public class Enemy : MonoBehaviour
     {
         GoTowards();
 
-      
+        
        
     }
 
-  
+    private void FixedUpdate()
+    {
+        
+    }
+
     private void GoTowards()
     {
         if (player != null && hasDied==false)
         {
             dist = player.transform.position - transform.position;
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        }  else
+        }  else if(player!=null && hasDied==true)
         {
-
+           
+          
         }
         
     }
@@ -126,7 +135,7 @@ public class Enemy : MonoBehaviour
         bool value = false;
         if (enemyHealth.getHealth() <= 0)
         {
-            return value = true;
+           value = true;
         }
        
         return value;
@@ -170,11 +179,28 @@ public class Enemy : MonoBehaviour
         hasShield = false;  
     }
 
-    public void startPemance() {
-        hasDied = true;
-        anim.SetBool("isDead", true);
-        anim.Play("deadEnemy");
-        Debug.Log("Ishere");
+    public void startPemance()
+    {
+     
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            int indivualHealth = enemies[i].gameObject.GetComponent<enemyHealth>().getHealth();
+
+            if (indivualHealth <= 0)
+            {
+               
+                enemies[i].gameObject.GetComponent<Animator>().SetBool("isDead", true);
+                enemies[i].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                enemies[i].gameObject.GetComponent<EnemyWeapon>().enabled = false;
+                enemies[i].gameObject.GetComponent<Enemy>().hasDied = true;
+
+
+                Debug.Log("Permanece");
+            }
+
+        }
+      
     }
 
 

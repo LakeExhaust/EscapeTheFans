@@ -32,17 +32,7 @@ public class GrenadeHandler : MonoBehaviour
         
     }
 
-    public int getNumber()
-    {
-        if(manger.enemy.hasDied==true)
-        {
-            knockbackNumber = 0;
-        } else if(manger.enemy.hasDied==false)  
-        {
-            knockbackNumber = 10;
-        }
-        return knockbackNumber; 
-    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Enemy"))
@@ -64,7 +54,7 @@ public class GrenadeHandler : MonoBehaviour
                 hasHitShieldedEnemy=true;       
                 Debug.Log("It wokrs on this site");
 
-                enemy.TakeDamage(15);
+                enemy.TakeDamage(20);
                 manger.changeColor(enemy.gameObject);
                
             }

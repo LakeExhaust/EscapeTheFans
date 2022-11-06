@@ -10,6 +10,7 @@ public class enemyHealth : MonoBehaviour
         private int health = 100;
         private int maxHealth = 100;
         public static int amountKileld = 0;
+       
       
        
        public GameManger manager;
@@ -49,7 +50,7 @@ public class enemyHealth : MonoBehaviour
             if (health <= 0)
             {
 
-             manager.startPemaence();    
+          
              manager.increaseDead();
               
             }

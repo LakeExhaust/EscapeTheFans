@@ -68,9 +68,14 @@ public class GameManger : MonoBehaviour
         Shield();
 
        
+       
 
     }
 
+    public void FixedUpdate()
+    {
+        startPemaence();
+    }
 
 
 
@@ -301,5 +306,8 @@ public class GameManger : MonoBehaviour
     {
         enemy.startPemance();       
     }
- 
+   public bool hasDied()
+    {
+        return enemy.hasDied;
+    }
 }

@@ -15,11 +15,13 @@ public class EnemyWeapon : MonoBehaviour
    public float startTime;
     public AudioSource src;
     public AudioClip ac;
+    public GameManger gm;
     private void Start()
     {
         timeLastCall = startTime;
         src = GetComponent<AudioSource>();
         src.clip = ac;
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManger>();
     }
 
     // Update is called once per frame
