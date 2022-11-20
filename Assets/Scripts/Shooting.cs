@@ -8,10 +8,11 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public float bulletForce=20f;
     GameObject bullet;
+    public GameObject normalBullet;
     public float cooldown = 0;
      float lastTimeSinceFired;
      public Cooldown UItext;
-    public GameObject normalBullet;
+
     public GameObject secondBullet;
     public GameManger gm;
     bool hasFired = false;
@@ -20,6 +21,7 @@ public class Shooting : MonoBehaviour
     public AudioSource src;
     public AudioClip ac;
     public AudioClip otherClip;
+    public bool hasNormalBulletFired = false;
     // Update is called once per frame
 
     private void Start()
@@ -30,12 +32,14 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             src.Play();
             fire(normalBullet);
-          
-        }
+            hasNormalBulletFired = true;
+
+        } 
+
         if (Input.GetButtonDown("Fire2") && gm.checkWater() == true && gm.hasTimeRunOut() == false)
         {
 
@@ -81,8 +85,7 @@ public class Shooting : MonoBehaviour
     {
         if (Time.time-lastTimeSinceFired<cooldown)
         {
-           
-            UItext.setCoolDown(cooldown);
+            gm.setCoolDown(cooldown);
             
             return;
            
@@ -96,12 +99,13 @@ public class Shooting : MonoBehaviour
             lastTimeSinceFired=Time.time;
             if (UItext.IsItCoolDown() == false)
             {
-
+                   
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             }
-            
+          
+
         }
         }
 
@@ -116,6 +120,11 @@ public class Shooting : MonoBehaviour
    public bool isFired()
     {
       return hasFired;
+    }
+
+    public bool isNormalBulletFired()
+    {
+       return hasNormalBulletFired;     
     }
 }
  

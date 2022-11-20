@@ -25,8 +25,5 @@ public class screenShake : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManger>();
     }
-    public void shakeCamera()
-    {
-
-    }
+   
 }

@@ -46,7 +46,7 @@ public class Cooldown : MonoBehaviour
 
     public bool IsItCoolDown()
     {
-        
+
         return isCoolDown;
     }
 }

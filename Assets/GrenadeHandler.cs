@@ -13,6 +13,7 @@ public class GrenadeHandler : MonoBehaviour
     public AudioSource src;
     public AudioClip clip;
     public int knockbackNumber;
+    public bool hasHitPlayer = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,8 @@ public class GrenadeHandler : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+       
+        if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
           
@@ -53,16 +55,33 @@ public class GrenadeHandler : MonoBehaviour
 
                 hasHitShieldedEnemy=true;       
                 Debug.Log("It wokrs on this site");
+                manger.throwGrenadeBack();
+               // enemy.TakeDamage(20);
+               //manger.changeColor(enemy.gameObject);
+                if (manger.getNormalBullet() == true)
+                {
+                    Debug.Log("Bulletmeister");
+                 //   enemy.TakeDamage(50);
+                }
 
-                enemy.TakeDamage(20);
-                manger.changeColor(enemy.gameObject);
-               
+
             }
-           
-           
 
-        } 
-      
+          
+
+
+
+
+
+        } else if(collision.CompareTag("Player"))
+        {
+            hasHitPlayer = true;
+           Player pl = collision.GetComponent<Player>();
+            pl.takeDamage(20);
+            manger.changeColor(pl.gameObject);
+        }
+
+
     }
 
   
@@ -70,13 +89,13 @@ public class GrenadeHandler : MonoBehaviour
    IEnumerator stopExplosion()
     {
      
-        if (hasHitEnemy == true || hasHitShieldedEnemy==true)   
+        if (hasHitEnemy == true)   
         {
             playAnim();
             yield return new WaitForSeconds((float)0.3);
             Destroy(gameObject);
 
-        }
+        } 
 
     }
   public bool hasHit()
@@ -89,5 +108,9 @@ public class GrenadeHandler : MonoBehaviour
         animator.Play("Explosion");
     }
 
+   public void playBigAnim()
+    {
+        animator.Play("bigExplo");
+    }
 
 }

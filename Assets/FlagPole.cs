@@ -19,9 +19,7 @@ public class FlagPole : MonoBehaviour
             audioSource.clip = clip;
             audioSource.Play();
             Debug.Log("Hahah" + audioSource.isPlaying.ToString());
-            gm.winText.setText("Player wins");
-            gm.winText.showText();
-     
+            gm.playerWin();
         }
     }
     // Start is called before the first frame update

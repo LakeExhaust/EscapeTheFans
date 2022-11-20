@@ -29,6 +29,17 @@ public class winConditions : MonoBehaviour
         
     }
 
+    public void enemyWin()
+    {
+
+        src.clip = youLoose;
+        src.Play();
+        Debug.Log(src.isPlaying.ToString() + "heyyyy");
+        winText.text = "Enemy has won";
+        showText();
+
+    }
+
     public Text getWinText()
     {
         return winText; 
@@ -44,16 +55,7 @@ public class winConditions : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void enemyWin()
-    {
-            
-            src.clip = youLoose;
-            src.Play();
-           Debug.Log(src.isPlaying.ToString() + "heyyyy");
-        winText.text = "Enemy has won";
-            showText();
-        
-    }
+  
 
     public void setText(string text)
     {

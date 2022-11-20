@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     public int health=100;
     public Rigidbody2D rb;
     public Camera cam;
-    Health playerHealth;
-
+   
     Vector2 movement;
     Vector2 mousePos;
     public HealthBar healthBar;
     public Animator anim;
+    Health playerHealth;
     // Update is called once per frame
 
     private void Start()
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
-
+    
     public void onDeath()
     {
         anim.SetTrigger("isDead");

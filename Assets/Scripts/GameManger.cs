@@ -38,6 +38,10 @@ public class GameManger : MonoBehaviour
 
     public GrenadeHandler gh;
 
+    public Cooldown cl;
+
+    public bool hasReallyHit = false;
+    public EnemyWeapon ew;
     void Start()
     {
         bigFan = GameObject.FindGameObjectWithTag("BigFan").GetComponent<BigFan>();
@@ -49,9 +53,11 @@ public class GameManger : MonoBehaviour
         winText = GameObject.FindGameObjectWithTag("winText").GetComponent<winConditions>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<screenShake>();
+        cl = GameObject.FindGameObjectWithTag("Cooldown").GetComponent<Cooldown>(); 
+        ew = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyWeapon>();
         src = GetComponent<AudioSource>();
         src.clip = damage;
-      
+        
         water.hideWater();
 
         winText.hideText();
@@ -65,7 +71,9 @@ public class GameManger : MonoBehaviour
     {
         resetGame();
 
-        Shield();
+        //   Shield();
+
+        StartCoroutine(playShield());
 
        
        
@@ -280,18 +288,35 @@ public class GameManger : MonoBehaviour
   public void Shield()
 
     {
-       if(enemy.getHealth()<=10 && enemy!=null)
+      if(hasReallyHit==true && enemy.isEnemyDead()==false)
         {
-            Debug.Log("We're in shield tettority");
-            enemy.playShield(); 
-        } else if(enemy.getHealth()>10)
+            enemy.playShield();
+            Debug.Log("SHIELDISON");
+        } else if(hasReallyHit == false && enemy.isEnemyDead() == false)
         {
             enemy.stopShied();
-            Debug.Log("We're not shield tettority");
+            Debug.Log("SHIELDISOFF");
         }
        
             
         
+    }
+
+    public IEnumerator playShield()
+    {
+
+        if(hasReallyHit==true)
+        {
+          
+            enemy.playShield();
+            Debug.Log("SHIELDISON");
+            
+        } else if(hasReallyHit==false)
+        {
+            yield return new WaitForSeconds((float)0.5F);
+            enemy.stopShied();
+            Debug.Log("SHIELDISOFF");
+        }
     }
 
     public bool hasHitEnemy()
@@ -316,5 +341,27 @@ public class GameManger : MonoBehaviour
     public void startPlayerPermance()
     {
         player.onDeath();
+    }
+
+    public bool getNormalBullet()
+    {
+        return shooting.isNormalBulletFired();
+    }
+
+    public void setCoolDown(float cooldown)
+    {
+           cl.setCoolDown(cooldown);    
+    }
+
+    public bool isItCoolDown()
+    {
+        return cl.IsItCoolDown();
+    }
+
+    public void throwGrenadeBack()
+    {
+        ew.throwGrenade();
+        Debug.Log("Throws the grenade back");
+
     }
 }

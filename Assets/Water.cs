@@ -8,6 +8,7 @@ public class Water : MonoBehaviour
 {
     public GameObject water;
     public bool hasCollided=false;
+  
     public float timer = 30.0f;
     GameManger manger;
     AudioSource audioSource;    
@@ -32,10 +33,7 @@ public class Water : MonoBehaviour
         }
     }
 
-    public void hideWater()
-    {
-        gameObject.SetActive(false);
-    }
+   
     void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
@@ -59,8 +57,11 @@ public class Water : MonoBehaviour
         Debug.Log("Shown now");
 
     }
-
-public bool isWater()
+    public void hideWater()
+    {
+        gameObject.SetActive(false);
+    }
+    public bool isWater()
     {
         return hasCollided;
     }

@@ -113,6 +113,8 @@ MonoBehaviour:
   anim: {fileID: 7123012309548539642}
   hasShield: 0
   hasDied: 0
+  bx: {fileID: 0}
+  allEnemiesHasDied: 0
 --- !u!50 &7123012309548539396
 Rigidbody2D:
   serializedVersion: 4
@@ -199,6 +201,9 @@ MonoBehaviour:
   startTime: 1
   src: {fileID: 7123012309548539647}
   ac: {fileID: 8300000, guid: 9ce40dda55764794e82c5cb6ec15f239, type: 3}
+  gm: {fileID: 0}
+  throwPrefab: {fileID: 0}
+  isItCreated: 0
 --- !u!114 &7123012309548539640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,11 +337,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7123012309667981962}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9999507, w: -0.00993269}
-  m_LocalPosition: {x: -6.01, y: 0.73, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7023606, w: 0.7118214}
+  m_LocalPosition: {x: -4.1, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7123012309548539646}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -181.138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 630.76697}

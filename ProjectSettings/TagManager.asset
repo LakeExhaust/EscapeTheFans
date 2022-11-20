@@ -16,6 +16,7 @@ TagManager:
   - Shake
   - ResumeButton
   - Grenade
+  - Cooldown
   layers:
   - Default
   - TransparentFX

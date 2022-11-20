@@ -16,6 +16,8 @@ public class EnemyWeapon : MonoBehaviour
     public AudioSource src;
     public AudioClip ac;
     public GameManger gm;
+    public GameObject throwPrefab;
+    public bool isItCreated = false;
     private void Start()
     {
         timeLastCall = startTime;
@@ -55,5 +57,15 @@ public class EnemyWeapon : MonoBehaviour
       
         timeLastCall += Time.deltaTime;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+    }
+
+  public void throwGrenade()
+    {
+      
+            GameObject grenade = Instantiate(throwPrefab, firePoint.position, firePoint.rotation) as GameObject;
+            Rigidbody2D rb = grenade.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
+            isItCreated = true;
+        
     }
 }

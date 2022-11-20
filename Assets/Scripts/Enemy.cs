@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
 
         
         enemyHealth.takeDamage(damage);
+        Debug.Log(" Enemy is receiving: " + damage);
      
     }
     

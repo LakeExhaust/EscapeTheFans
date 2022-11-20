@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public int damage = 5;
     public int amountKilled = 0;
     GameManger manager;
-   
+  
 
 
     private void Start()
@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
+         
           
             if (manager.hasFired() == true)
             {
@@ -62,19 +63,25 @@ public class Bullet : MonoBehaviour
 
             }
             else if (manager.hasFired() == false)
-            {
+           { 
                 if (enemy.hasShield == false)
                 {
+                  
                     enemy.TakeDamage(damage);
                     manager.changeColor(enemy.gameObject);
 
                     manager.playDamage();
                     manager.enemyHit = true;
                     Destroy(gameObject);
+                    manager.hasReallyHit = true;
                 }
-                else
+                else if(enemy.hasShield == true)
                 {
+                  
                     enemy.TakeNoDamage(damage);
+                    manager.hasReallyHit = false;
+
+
                 }
 
 
