@@ -49,14 +49,16 @@ public class GrenadeHandler : MonoBehaviour
 
             rb.AddForce(knocback);  
             Debug.Log(hasHitEnemy);
-         
-            if(enemy.hasShield==true)
+            enemy.TakeDamage(20);
+
+            if (enemy.hasShield==true)
             {
 
-                hasHitShieldedEnemy=true;       
+                hasHitShieldedEnemy=true;
+                manger.hasReallyHit = false;
                 Debug.Log("It wokrs on this site");
                 manger.throwGrenadeBack();
-               // enemy.TakeDamage(20);
+               
                //manger.changeColor(enemy.gameObject);
                 if (manger.getNormalBullet() == true)
                 {

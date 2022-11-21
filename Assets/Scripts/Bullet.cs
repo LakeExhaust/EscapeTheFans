@@ -79,7 +79,7 @@ public class Bullet : MonoBehaviour
                 {
                   
                     enemy.TakeNoDamage(damage);
-                    manager.hasReallyHit = false;
+                 
 
 
                 }

@@ -38,7 +38,7 @@ public class Shooting : MonoBehaviour
             fire(normalBullet);
             hasNormalBulletFired = true;
 
-        } 
+        }  
 
         if (Input.GetButtonDown("Fire2") && gm.checkWater() == true && gm.hasTimeRunOut() == false)
         {

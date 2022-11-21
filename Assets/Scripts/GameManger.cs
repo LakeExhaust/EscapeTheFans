@@ -310,7 +310,8 @@ public class GameManger : MonoBehaviour
           
             enemy.playShield();
             Debug.Log("SHIELDISON");
-            
+          
+
         } else if(hasReallyHit==false)
         {
             yield return new WaitForSeconds((float)0.5F);
