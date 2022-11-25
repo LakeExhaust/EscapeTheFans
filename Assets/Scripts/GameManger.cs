@@ -24,7 +24,7 @@ public class GameManger : MonoBehaviour
     public bool spawnedEnemies = false;
     bool playerWon = false;
     bool enemyWon = false;
-
+    public float timeRemaining = 10;
     bool colorHasChanged = false;
 
     public float countdown = 0;
@@ -42,6 +42,8 @@ public class GameManger : MonoBehaviour
 
     public bool hasReallyHit = false;
     public EnemyWeapon ew;
+
+    public SkinnerWeapon QD;
     void Start()
     {
         bigFan = GameObject.FindGameObjectWithTag("BigFan").GetComponent<BigFan>();
@@ -55,6 +57,7 @@ public class GameManger : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<screenShake>();
         cl = GameObject.FindGameObjectWithTag("Cooldown").GetComponent<Cooldown>(); 
         ew = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyWeapon>();
+        QD = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<SkinnerWeapon>();
         src = GetComponent<AudioSource>();
         src.clip = damage;
         
@@ -76,7 +79,7 @@ public class GameManger : MonoBehaviour
         StartCoroutine(playShield());
 
        
-       
+       startDialogueBox();  
 
     }
 
@@ -364,5 +367,34 @@ public class GameManger : MonoBehaviour
         ew.throwGrenade();
         Debug.Log("Throws the grenade back");
 
+    }
+
+    public void startDialogueBox()
+    {
+        if(counter == 3)
+        {
+            QD.hasKilledEnoughEnemies();
+        } else if(counter >=6)
+        {
+            skinnerOff();
+            Debug.Log("Skinner is off");
+        }
+    }
+
+    public void skinnerOn()
+    {
+     
+     player.skinnerOn();
+            
+      
+    }aaaaaaaaaaaaw
+    public void skinnerOff()
+    {
+        player.skinnerOff();
+    }
+
+    public bool isSkinner()
+    {
+        return player.hasSkinner;
     }
 }

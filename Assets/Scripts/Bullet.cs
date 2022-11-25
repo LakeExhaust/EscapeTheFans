@@ -48,7 +48,12 @@ public class Bullet : MonoBehaviour
                     Debug.Log("Has fired");
                     manager.changeColor(enemy.gameObject);
                     manager.enemyHit = true;
-                    enemy.TakeDamage(damage * 2);
+                    if (manager.isSkinner() == false)
+                    {
+                        enemy.TakeDamage(damage * 2);
+                    } else if(manager.isSkinner() == true) {
+                        enemy.TakeDamage(damage * 4);
+                    }
                     manager.playDamage();
                     //     manager.GetShake();
                     Destroy(gameObject);
@@ -66,8 +71,15 @@ public class Bullet : MonoBehaviour
            { 
                 if (enemy.hasShield == false)
                 {
-                  
-                    enemy.TakeDamage(damage);
+                    if (manager.isSkinner() == false)
+                    {
+                        enemy.TakeDamage(damage);
+                    }
+                    else if (manager.isSkinner() == true)
+                    {
+                        enemy.TakeDamage(damage * 4);
+                    }
+                   
                     manager.changeColor(enemy.gameObject);
 
                     manager.playDamage();
@@ -92,8 +104,16 @@ public class Bullet : MonoBehaviour
         {
             manager.changeColor(bigFan.gameObject);
             manager.enemyHit = true;
-          
-            bigFan.TakeDamage(damage);
+
+            if (manager.isSkinner() == false)
+            {
+                bigFan.TakeDamage(damage);
+            }
+            else if (manager.isSkinner() == true)
+            {
+                bigFan.TakeDamage(damage * 4);
+            }
+       
             manager.playDamage();
             //  manager.GetShake();
             if (manager.isBigFan() == true)
@@ -116,8 +136,15 @@ public class Bullet : MonoBehaviour
             manager.spawnEnemy(5);
             manager.changeColor(bigFan.gameObject);
             manager.enemyHit = true;
-           
-            bigFan.TakeDamage(damage);
+
+            if (manager.isSkinner() == false)
+            {
+                bigFan.TakeDamage(damage);
+            }
+            else if (manager.isSkinner() == true)
+            {
+                bigFan.TakeDamage(damage * 4);
+            }
             manager.playDamage();
          //   manager.GetShake();
             Destroy(gameObject);

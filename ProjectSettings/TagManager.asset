@@ -17,6 +17,10 @@ TagManager:
   - ResumeButton
   - Grenade
   - Cooldown
+  - YesButton
+  - NoButton
+  - DialogueBox
+  - Question
   layers:
   - Default
   - TransparentFX

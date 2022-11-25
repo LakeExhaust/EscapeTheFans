@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Animator anim;
     Health playerHealth;
     // Update is called once per frame
-
+    public bool hasSkinner = false;
     private void Start()
     {
         playerHealth = GetComponent<Health>();
@@ -52,4 +52,16 @@ public class Player : MonoBehaviour
         anim.SetTrigger("isDead");
         
     }
+    public void skinnerOn()
+    {
+        hasSkinner = true;
+        anim.SetBool("isEnough", true);
+    }
+
+    public void skinnerOff()
+    {
+        hasSkinner=false;
+        anim.SetBool("isEnough", false);
+    }
+
 }
