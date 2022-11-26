@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class HandleNoButton : MonoBehaviour
 {
-    public static bool Noclicked = false;
+    public static bool hasClicked = false;
 
-    void LateUpdate()
+    public void Update()
     {
-        Noclicked = false;
+        hasClicked = false;
     }
 
-    public void Click()
+    public void onClick()
     {
-        Noclicked = true;
-        Debug.Log("NOO");
+        hasClicked = true;
+        Debug.Log("Hi");
     }
-    public bool getClicked() { return Noclicked; }
+
+    public bool getClicked() { return hasClicked; }
 }

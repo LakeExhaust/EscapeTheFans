@@ -22,6 +22,8 @@ public class Shooting : MonoBehaviour
     public AudioClip ac;
     public AudioClip otherClip;
     public bool hasNormalBulletFired = false;
+    public GameObject specialBullet;
+  
     // Update is called once per frame
 
     private void Start()
@@ -35,7 +37,15 @@ public class Shooting : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             src.Play();
-            fire(normalBullet);
+            if (gm.isSkinner() == false)
+            {
+              
+                fire(normalBullet);
+            } else if(gm.isSkinner() == true)
+            {
+              
+                fire(specialBullet);    
+            }
             hasNormalBulletFired = true;
 
         }  

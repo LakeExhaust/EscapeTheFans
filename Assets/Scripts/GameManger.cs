@@ -374,7 +374,7 @@ public class GameManger : MonoBehaviour
         if(counter == 3)
         {
             QD.hasKilledEnoughEnemies();
-        } else if(counter >=6)
+        } else if(counter >10)
         {
             skinnerOff();
             Debug.Log("Skinner is off");
@@ -387,7 +387,7 @@ public class GameManger : MonoBehaviour
      player.skinnerOn();
             
       
-    }aaaaaaaaaaaaw
+    }
     public void skinnerOff()
     {
         player.skinnerOff();

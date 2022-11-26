@@ -798,7 +798,9 @@ MonoBehaviour:
   qr: {fileID: 1946710276}
   yesButton: {fileID: 1980781719}
   noButton: {fileID: 100883191}
+  gm: {fileID: 0}
   buttonName: 
+  timeRemaining: 10
 --- !u!1 &452280342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1077,7 @@ MonoBehaviour:
   winText: {fileID: 0}
   player: {fileID: 0}
   spawnedEnemies: 0
+  timeRemaining: 10
   countdown: 0.5
   enemyHit: 0
   timerHasNotRunOut: 0
@@ -19489,6 +19492,7 @@ MonoBehaviour:
   cam: {fileID: 400403203}
   healthBar: {fileID: 1937697546}
   anim: {fileID: 0}
+  hasSkinner: 0
 --- !u!114 &1080984045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19503,7 +19507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1338064540}
   bulletForce: 5
-  normalBullet: {fileID: 2447360798970934311, guid: a2ceed49aa9386343865c3566be2106a, type: 3}
+  normalBullet: {fileID: 2447360798970934311, guid: c526a202a6b180c4e9610c6f5280f144, type: 3}
   cooldown: 0
   UItext: {fileID: 1733935623}
   secondBullet: {fileID: 7732598653581756557, guid: 570d321e635cb774f83127a9745ce9cf, type: 3}
@@ -19513,6 +19517,7 @@ MonoBehaviour:
   ac: {fileID: 8300000, guid: fa3884fd82069cb459033960e9f4bdc4, type: 3}
   otherClip: {fileID: 8300000, guid: b364532306b6ab64eb41bb42c44c4389, type: 3}
   hasNormalBulletFired: 0
+  specialBullet: {fileID: 7451901042259194859, guid: 9f7462207385a0f47b7bca4e8ac77105, type: 3}
 --- !u!114 &1080984046
 MonoBehaviour:
   m_ObjectHideFlags: 0

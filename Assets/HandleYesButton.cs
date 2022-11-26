@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class HandleYesButton : MonoBehaviour
 {
-    public static bool clicked = false;
+    public static bool hasClicked = false;
 
-    void LateUpdate()
+    public void Update()
     {
-        clicked = false;
+        hasClicked = false;
     }
 
-    public void Click()
+    public void onClick()
     {
-        clicked = true;
+        hasClicked = true;
         Debug.Log("Hi");
     }
 
-    public bool getClicked() { return clicked; }    
+    public bool getClicked() { return hasClicked; }    
 }
