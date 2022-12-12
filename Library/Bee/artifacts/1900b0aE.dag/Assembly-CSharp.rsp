@@ -381,6 +381,7 @@
 "Assets/GrenadeHandler.cs"
 "Assets/HandleNoButton.cs"
 "Assets/HandleYesButton.cs"
+"Assets/NextButtonHandler.cs"
 "Assets/Pause.cs"
 "Assets/Powerups/PowerupEffect.cs"
 "Assets/ScoreScript.cs"
@@ -437,6 +438,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/Tutorial.cs"
 "Assets/Water.cs"
 "Assets/winConditions.cs"
 -langversion:9.0

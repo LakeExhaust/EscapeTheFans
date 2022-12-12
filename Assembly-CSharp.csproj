@@ -121,6 +121,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\BigFan.cs" />
     <Compile Include="Assets\enemyFlag.cs" />
+    <Compile Include="Assets\Tutorial.cs" />
+    <Compile Include="Assets\NextButtonHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

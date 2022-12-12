@@ -121,7 +121,7 @@ public class Bullet : MonoBehaviour
                 Debug.Log("You get a powerup");
                 manager.getWater();
                 manager.spawnEnemy(3);
-                manager.spawnEnemy(5);
+               manager.spawnSecondaryEnemies(5);
             }
             Destroy(gameObject);
             
@@ -134,6 +134,7 @@ public class Bullet : MonoBehaviour
             Debug.Log("Spawn more");
 
             manager.spawnEnemy(5);
+            manager.spawnSecondaryEnemies(5);
             manager.changeColor(bigFan.gameObject);
             manager.enemyHit = true;
 

@@ -44,6 +44,8 @@ public class GameManger : MonoBehaviour
     public EnemyWeapon ew;
 
     public SkinnerWeapon QD;
+    public Spawmer secondarySpawner;
+    public Tutorial tm;
     void Start()
     {
         bigFan = GameObject.FindGameObjectWithTag("BigFan").GetComponent<BigFan>();
@@ -60,7 +62,9 @@ public class GameManger : MonoBehaviour
         QD = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<SkinnerWeapon>();
         src = GetComponent<AudioSource>();
         src.clip = damage;
-        
+        secondarySpawner = GameObject.FindGameObjectWithTag("SecondSpawner").GetComponent<Spawmer>();
+        tm = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<Tutorial>();
+    
         water.hideWater();
 
         winText.hideText();
@@ -72,6 +76,7 @@ public class GameManger : MonoBehaviour
 
     void Update()
     {
+        tm.onTutorial();
         resetGame();
 
         //   Shield();
@@ -150,6 +155,13 @@ public class GameManger : MonoBehaviour
     {
         spawnedEnemies = true;
         spawmer.itemToSpawn(amount);
+    }
+
+    public void spawnSecondaryEnemies(int amount)
+    {
+        spawnedEnemies = true;
+        secondarySpawner.itemToSpawn(amount);   
+
     }
 
     public void getWater()
@@ -345,6 +357,7 @@ public class GameManger : MonoBehaviour
     public void startPlayerPermance()
     {
         player.onDeath();
+     
     }
 
     public bool getNormalBullet()

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     Health playerHealth;
     // Update is called once per frame
     public bool hasSkinner = false;
+    public bool isDead=false;
     private void Start()
     {
         playerHealth = GetComponent<Health>();
@@ -40,17 +41,22 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (isDead == false)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+            Vector2 lookDir = mousePos - rb.position;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = angle;
+        }
     }
     
     public void onDeath()
     {
         anim.SetTrigger("isDead");
-        
+        isDead = true;
+
+
     }
     public void skinnerOn()
     {

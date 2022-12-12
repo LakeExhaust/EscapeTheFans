@@ -21,6 +21,14 @@ TagManager:
   - NoButton
   - DialogueBox
   - Question
+  - SecondSpawner
+  - TutorialManager
+  - NextButton
+  - ButtonText
+  - Subtext
+  - TutorialCanvas
+  - TutorialTitle
+  - TutorialColor
   layers:
   - Default
   - TransparentFX
